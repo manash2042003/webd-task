@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TraWorld</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Playfair+Display:ital,wght@1,500&family=Signika+Negative:wght@600&family=Ubuntu:wght@300&display=swap"
+        rel="stylesheet">
+
+
+    <script src="https://kit.fontawesome.com/5a360170f9.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            scroll-behavior: smooth;
+            margin: 0px;
+            padding: 0px;
+            transition-property: all;
+            transition-duration: 0.8s;
+        }
+
+        body {
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        /* Utility Classes */
+        .heading {
+            font-size: 4.5rem;
+            margin: 30px 20px 2px 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation Bar */
+        header {
+            position: sticky;
+            top: 0px;
+            left: 0px;
+            z-index: 1;
+            background-color: #2d1414;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .navbar:hover {
+            background-color: black;
+        }
+
+        #hamburger {
+            display: none;
+            font-size: 2rem;
+            margin: 5px;
+            position: relative;
+            left: 45vw;
+            color: wheat;
+            transition-duration: 0s;
+        }
+
+        .navbar>.logo {
+            font-size: 2rem;
+            position: absolute;
+            padding: 15px 15px 15px 40px;
+            left: 3vw;
+            cursor: pointer;
+        }
+
+        .navbar>.logo:hover {
+            transform: scale(1.1);
+        }
+
+        .navbar>.logo>span {
+            color: wheat;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .logoGlobe {
+            color: #23bae8;
+            font-size: 1.375rem;
+        }
+
+        .airplane {
+            color: wheat;
+            font-size: 1.3rem;
+        }
+
+        #divnavlinks {
+            position: relative;
+            left: 10vw;
+        }
+
+        #navlinks {
+            display: flex;
+        }
+
+        #navlinks li {
+            list-style: none;
+            margin: 10px 23px;
+        }
+
+        #navlinks li a {
+            color: wheat;
+            padding: 8px 23px 8px 23px;
+            display: block;
+            text-decoration: none;
+            font-size: 1.3rem;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        #navlinks li a:hover {
+            transform: scale(1.15);
+            color: #2d1414;
+            background-color: wheat;
+        }
+
+        #verticalbar {
+            display: none;
+            position: sticky;
+            top: 47px;
+            left: 0px;
+            z-index: 1;
+        }
+
+        #verticalbar div {
+            background-color: #2d1414;
+            border-top: 2px solid #47201a;
+            height: 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        #verticalbar div:hover {
+            background-color: black
+        }
+
+        #verticalbar a {
+            text-decoration: none;
+            color: wheat;
+            font-size: 1.3rem;
+        }
+
+        /* Home Page */
+        #home {
+            display: grid;
+            grid-template-columns: 5.7fr 4.3fr;
+            background-color: #fde6c8;
+            height: 88vh;
+        }
+
+        #home #img {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        #home img {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        #intro {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #intro h1 {
+            font-family: 'Signika Negative';
+            font-size: 3.2rem;
+            margin: 23px;
+            position: relative;
+            bottom: 50px;
+            text-align: center;
+        }
+
+        #intro p {
+            position: relative;
+            bottom: 30px;
+            font-size: 1.1rem;
+            margin: 5px;
+            text-align: center;
+        }
+
+        /* About Us */
+        #about {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            text-align: center;
+            background: url("https://img.freepik.com/free-photo/maldives-island_74190-477.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #statsbox {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin: 5px;
+        }
+
+        #ratingbox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5px;
+        }
+
+        #stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            padding: 30px;
+            margin: 30px;
+            position: relative;
+            right: 2vw;
+        }
+
+        .statdiv {
+            display: flex;
+            flex-direction: column;
+            margin: 10px;
+            font-size: 2rem;
+            text-align: center;
+            padding: 23px 10px 23px 10px;
+            border-radius: 30px;
+            width: auto;
+            height: auto;
+            color: white;
+            box-shadow: 0 0 10px royalblue;
+        }
+
+        .statdiv:hover {
+            transform: scale(1.05);
+        }
+
+        .statdiv div {
+            margin: 15px 5px 15px 5px;
+        }
+
+        .statdiv i {
+            font-size: 2.5rem;
+        }
+
+        #awards {
+            background-color: darkorange;
+        }
+
+        #clients {
+            background-color: #4CAF50;
+        }
+
+        #team {
+            background-color: #23b9b9;
+        }
+
+        #rank {
+            background-color: #c6ba6c;
+        }
+
+        #awards:hover {
+            background-color: #fd9a21;
+        }
+
+        #clients:hover {
+            background-color: #2fbc35;
+        }
+
+        #team:hover {
+            background-color: #28d8d8;
+        }
+
+        #rank:hover {
+            background-color: #d6ca7b;
+        }
+
+        #rating {
+            width: 90%;
+            position: relative;
+            background-color: #c5eaeceb;
+            font-size: 1.5rem;
+            padding: 10px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px #06b1ff;
+            cursor: pointer;
+        }
+
+        #rating:hover {
+            transform: scale(1.03);
+            background-color: #c5eaec;
+        }
+
+        #rating .heading {
+            font-weight: bold;
+            font-size: 1.8rem;
+        }
+
+        #rating hr {
+            width: 85%;
+            border: 2px solid #a5e2e9;
+            position: relative;
+            left: 2.5em;
+            top: 0.2em;
+        }
+
+        #ratingbar {
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr 4fr;
+            font-size: 1.1rem;
+            margin: 10px;
+        }
+
+        .bar {
+            height: inherit;
+            border-radius: inherit;
+            position: relative;
+            right: 1px;
+        }
+
+        #bar5 {
+            width: 55%;
+            background-color: #029302;
+        }
+
+        #bar4 {
+            width: 25%;
+            background-color: blue;
+        }
+
+        #bar3 {
+            width: 12%;
+            background-color: #1bb7b7;
+        }
+
+        #bar2 {
+            width: 6%;
+            background-color: #F9A825;
+        }
+
+        #bar1 {
+            width: 6%;
+            background-color: red;
+        }
+
+        .star {
+            color: #ff9700;
+        }
+
+        .left {
+            margin: 10px;
+        }
+
+        .middle {
+            /* border: 2px solid black; */
+            margin: 10px 40px 10px 10px;
+            height: 13px;
+            position: relative;
+            top: 3px;
+            border-radius: 5px;
+            background-color: #d1d1d1;
+        }
+
+        /* Tours */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .card img {
+            width: 270px;
+            height: 190px;
+        }
+
+        #tours {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            background: url('https://images.pexels.com/photos/355872/pexels-photo-355872.jpeg?auto=compress&cs=tinysrgb&w=600') no-repeat center center/cover;
+        }
+
+        #tours h1 {
+            font-size: 4.5rem;
+            color: wheat;
+        }
+
+        .card {
+            background-color: #c8c5c5b8;
+            margin: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            width: 300px;
+            border-radius: 30px;
+            padding: 10px;
+        }
+
+        .card span {
+            font-weight: bold;
+        }
+
+        .card:hover {
+            background-color: #c8c5c5;
+        }
+
+        .card img {
+            margin: 10px;
+        }
+
+        .card h2 {
+            margin: 10px;
+            font-size: 2.5rem;
+        }
+
+        .card p {
+            margin: 10px;
+            font-size: 1.1rem;
+        }
+
+        .card h4 {
+            font-size: 1.2rem;
+        }
+
+        .card button {
+            margin: 10px;
+        }
+
+        a {
+            color: purple;
+        }
+
+        .card .book {
+            background-color: #0fffd269;
+            padding: 6px 8px 6px 8px;
+            border-radius: 20px;
+            box-shadow: 0 5px gray;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .book:hover {
+            background-color: #00ffcf;
+        }
+
+        .book:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px gray;
+            transition-duration: 0.1s;
+        }
+
+        /* Contact Us */
+
+        #contact {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: url("https://cdn.pixabay.com/photo/2019/05/10/13/28/contact-us-4193523__340.jpg") no-repeat center center/cover;
+        }
+
+        #contact form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 35%;
+            margin: 20px;
+            padding-bottom: 20px;
+            font-size: 1.4rem;
+            border-radius: 30px;
+        }
+
+        #contact label {
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        textarea {
+            text-align: center;
+            border-radius: 10px;
+            background-color: #f5ece0;
+            width: 60%;
+        }
+
+        #contact input {
+            width: 50%;
+            border-radius: 7px;
+            /* border: none; */
+            text-align: center;
+            background-color: #f5ece0;
+        }
+
+        .btns {
+            display: flex;
+            width: 50%;
+        }
+
+        .btn {
+            width: 50%;
+            margin: 10px;
+            background-color: darkorange !important;
+            padding: 6px;
+            font-size: 1.2rem;
+            border-radius: 20px !important;
+            border: none;
+            outline: none;
+            box-shadow: 0px 5px black;
+        }
+
+        .btn:hover {
+            background-color: #ffa02b !important;
+        }
+
+        .btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px black;
+            transition-duration: 0.1s;
+        }
+
+        /* Footer */
+        footer {
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .footerdetails {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+        }
+
+        footer h4,
+        footer li,
+        footer p,
+        footer #icons {
+            margin: 5px;
+        }
+
+        #icons a {
+            margin: 10px;
+            font-size: 1.5rem;
+        }
+
+        #copyright {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+            border-top: 2px solid #454545;
+        }
+
+        footer .logo span {
+            font-size: 2rem;
+            color: white;
+            font-family: cursive;
+        }
+
+        footer .logoGlobe {
+            color: white;
+        }
+
+        footer .airplane {
+            color: white;
+        }
+
+        #top a {
+            font-size: 2.5rem;
+        }
+
+        #links li a:hover {
+            text-decoration: underline;
+        }
+
+        @media only screen and (max-width: 1162px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .card {
+                margin-right: 5px;
+                width: 400px;
+            }
+
+            #rating .heading {
+                display: block;
+            }
+        }
+
+        @media only screen and (max-width: 1016px) {
+            #navlinks {
+                display: none;
+            }
+
+            #hamburger {
+                display: block;
+            }
+
+            #home {
+                display: flex;
+                flex-direction: column;
+                height: auto;
+            }
+
+            #home img {
+                bottom: 7vh;
+            }
+        }
+
+        @media only screen and (max-width: 900px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            #container {
+                flex-direction: column;
+            }
+
+            #stats {
+                margin: 0;
+                padding: 0;
+            }
+
+            #statdiv {
+                font-size: 1.5rem;
+            }
+
+            #rating {
+                margin-top: 20px;
+                margin-bottom: 30px;
+            }
+
+            .card {
+                margin: 0px 0px 30px 0px;
+                width: 250px;
+            }
+
+            .heading {
+                font-size: 3rem;
+            }
+
+            #contact form {
+                width: 100%;
+            }
+
+            #hamburger {
+                position: relative;
+                left: 40vw;
+            }
+
+            .footerdetails {
+                flex-direction: column;
+            }
+
+            #links,
+            #footercontact,
+            #top,
+            .footerdetails .logo,
+            #copyright {
+                margin-top: 30px;
+            }
+
+            #copyright {
+                font-size: 1rem;
+            }
+
+            #intro {
+                height: 50vh;
+            }
+
+            #home img {
+                bottom: 0vh;
+            }
+
+            #intro h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <span>TraW<i class="fa fa-globe logoGlobe"></i>rld</span>
+                <i class="fa fa-plane-departure airplane"></i>
+            </div>
+            <div id="divnavlinks">
+                <ul id="navlinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#tours">Tours</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div id="hamburger">
+                <i class="fa fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+    <div id="verticalbar">
+        <a href="#home">
+            <div>Home</div>
+        </a>
+        <a href="#about">
+            <div>About</div>
+        </a>
+        <a href="#tours">
+            <div>Tours</div>
+        </a>
+        <a href="#contact">
+            <div>Contact</div>
+        </a>
+    </div>
+    <section id="home">
+        <div id="img">
+            <img src="https://wallpaperaccess.com/full/2456876.jpg" alt="Tourism">
+        </div>
+        <div id="intro">
+            <h1>Welcome to TraWorld</h1>
+            <p>Your ultimate guide to unforgettable travel experiences,</p>
+            <p>where adventure and relaxation collide to create ultimate memories</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <h1 class="heading">About Us</h1>
+        <div id="container">
+            <div id="statsbox">
+                <div id="stats">
+                    <div id="awards" class="statdiv">
+                        <div><i class="fa fa-trophy"></i></div>
+                        <div class="num">50+</div>
+                        <div class="content">Awards</div>
+                    </div>
+                    <div id="clients" class="statdiv">
+                        <div><i class="far fa-smile"></i></div>
+                        <div class="num">2000+</div>
+                        <div class="content">Happy Tourists</div>
+                    </div>
+                    <div id="team" class="statdiv">
+                        <div><i class="fas fa-user-friends"></i></div>
+                        <div class="num">100+</div>
+                        <div class="content">Team</div>
+                    </div>
+                    <div id="rank" class="statdiv">
+                        <div><i class="fa fa-award"></i></div>
+                        <div class="num">#1</div>
+                        <div class="content">Ranking in the country</div>
+                    </div>
+                </div>
+            </div>
+            <div id="ratingbox">
+                <div id="rating">
+                    <span class="heading">User Rating:</span>
+                    <span class="fa fa-star checked star"></span>
+                    <span class="fa fa-star checked star"></span>
+                    <span class="fa fa-star checked star"></span>
+                    <span class="fa fa-star checked star"></span>
+                    <span class="fa fa-star-half-full star"></span>
+                    <p>4.5 average rating based on 945 reviews.</p>
+                    <hr>
+                    <div id="ratingbar">
+                        <div class="left">5-star</div>
+                        <div class="middle">
+                            <div id="bar5" class="bar"> </div>
+                        </div>
+                        <div class="left">4-star</div>
+                        <div class="middle">
+                            <div id="bar4" class="bar"></div>
+                        </div>
+                        <div class="left">3-star</div>
+                        <div class="middle">
+                            <div id="bar3" class="bar"></div>
+                        </div>
+                        <div class="left">2-star</div>
+                        <div class="middle">
+                            <div id="bar2" class="bar"></div>
+                        </div>
+                        <div class="left">1-star</div>
+                        <div class="middle">
+                            <div id="bar1" class="bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tours">
+
+        <h1 class="heading">Tours </h1>
+
+        <div class="cards">
+            <div class="card" id="india">
+                <img src="https://cdn.pixabay.com/photo/2020/02/02/17/24/travel-4813658_960_720.jpg" alt="india">
+                <h2>India</h2>
+                <h4>The Land of Diversity</h4>
+                <p>Situated in South Asia, India is a country with deep cultural roots and a rich heritage. A great
+                    country for budget travel, India is popular for its forts and palaces. You can visit India to
+                    findyourself through yoga, to lose yourself in the mountains of Himalayas, to be mesmerised by the
+                    ancient temples. <a href="https://en.wikipedia.org/wiki/India" target="_blank">Know More..</a></p>
+                <p> <span>Starting Price:</span> &#x20B9;50,000</p>
+                <button class="book">
+                    Book Now
+                </button>
+            </div>
+
+            <div class="card" id="thailand">
+                <img src="https://images.pexels.com/photos/733071/pexels-photo-733071.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt="india">
+                <h2>Thailand</h2>
+                <h4>The Gateway to Southeast Asia</h4>
+                <p>Thailand, a dreamy beachside paradise, is a country that has managed to retain its cultural integrity
+                    in spite of being a major tourist destination. One can find everything here - from pristine beaches
+                    to dense forests, ancient monasteries to coral reefs, from Buddhist monks to floating markets. <a
+                        href="https://en.wikipedia.org/wiki/Thailand" target="_blank">Know More..</a></p>
+                <p><span>Starting Price:</span> &#x20B9;30,000</p>
+                <button class="book">
+                    Book Now
+                </button>
+            </div>
+
+            <div class="card" id="Mauritius">
+                <img src="https://imgcld.yatra.com/ytimages/image/upload/t_holidays_srplist_tablet_hc/v1471865079/Mauritius_Best_Time1.jpg"
+                    alt="india">
+                <h2>Mauritius</h2>
+                <h4>Island Paradise</h4>
+                <p>Mauritius, or the Republic of Mauritius, is a multi-cultural island nation located about 2,000
+                    kilometres from Africa in the Indian Ocean and southeast of Seychelles. With palm-fringed beaches,
+                    aquamarine waters, imposing mountains and lush national parks. <a
+                        href="https://en.wikipedia.org/wiki/Mauritius" target="_blank">Know More..</a></p>
+                <p><span>Starting Price:</span> &#x20B9;55,000</p>
+                <button class="book">
+                    Book Now
+                </button>
+            </div>
+
+            <div class="card" id="switzerland">
+                <img src="https://www.axisbank.com/images/default-source/progress-with-us_new/what-to-do-in-switzerland.jpg"
+                    alt="india">
+                <h2>Switzerland</h2>
+                <h4>Playground of Europe</h4>
+                <p>Switzerland is a land of stereotypes- expansive greenery, picturesque landscapes, chocolate, cheese,
+                    and watches. Switzerland's lush green vistas are so perfect that they seem to be plucked out of a
+                    postcard. It truly is one of the most beautiful places on Earth-soaring Alpine mountains, medieval
+                    churches.<a href="https://en.wikipedia.org/wiki/Switzerland" target="_blank">Know More..</a></p>
+                <p><span>Starting Price:</span> &#x20B9;1,00,000</p>
+                <button class="book">
+                    Book Now
+                </button>
+            </div>
+
+            <div class="card" id="France">
+                <img src="https://hldak.mmtcdn.com/prod-s3-hld-hpcmsadmin/holidays/images/cities/734/paris4.jpg?crop=259:168&downsize=259:168"
+                    alt="india">
+                <h2>France</h2>
+                <h4>The City of Love</h4>
+                <p>Renowned as world's most famous and most visited tourist destination, France is nestled in Western
+                    Europe holding some of the greatest treasure troves. The country is an irresistible assortment of
+                    picture perfect landscapes, cultural foible, remarkable fashion sense, historical bequest and of
+                    course gastronomic adventures <a href="https://en.wikipedia.org/wiki/France" target="_blank">Know
+                        More..</a></p>
+                <p><span>Starting Price:</span> &#x20B9;50,000</p>
+                <button class="book">
+                    Book Now
+                </button>
+            </div>
+
+            <div class="card" id="Indonesia">
+                <img src="https://www.indonesia.travel/content/dam/indtravelrevamp/home-revamp/bali-jack.jpg"
+                    alt="india">
+                <h2>Indonesia</h2>
+                <h4>Where Culture meets the Nature</h4>
+                <p>Indonesia is a kaleidoscope of taste, sight, sound, and smells bottled up in the world's largest
+                    archipelago. Spread out over a mind-boggling 17,000 islands, the country offers a vast melange of
+                    experiences begging to be sampled by visitors from across the world. <a
+                        href="https://en.wikipedia.org/wiki/Indonesia" target="_blank">Know More..</a></p>
+                <p><span>Starting Price:</span> &#x20B9;45,000</p>
+                <button class="book">
+                    Book Now
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <h1 class="heading">Contact Us</h1>
+        <form action="#" id="contactform">
+            <label for="name"> Name: </label>
+            <input type="text" id="name" name="name" placeholder="Enter your name">
+            <label for="email"> Email: </label>
+            <input type="text" id="email" name="email" placeholder="Enter your email">
+            <label for="mobile"> Contact No. :</label>
+            <input type="text" id="mobile" name="mobile" placeholder="Enter your contact no.">
+            <label for="message"> Message:</label>
+            <textarea name="message" id="message" cols="50" rows="10"
+                placeholder="Any message you would like to share.."></textarea>
+            <div class="btns">
+                <input type="submit" name="submit" class="btn">
+                <input type="reset" name="reset" class="btn">
+            </div>
+
+        </form>
+    </section>
+
+    <footer>
+        <div class="footerdetails">
+            <div id="links">
+                <h4>USEFUL LINKS</h4>
+                <ul>
+                    <li> <a href="#home">Home</a> </li>
+                    <li> <a href="#about">About</a> </li>
+                    <li> <a href="#" target="_blank">Terms</a> </li>
+                    <li> <a href="#" target="_blank">Privacy Policy</a> </li>
+                </ul>
+            </div>
+
+            <div class="logo">
+                <span>TraW<i class="fa fa-globe logoGlobe"></i>rld</span>
+                <i class="fa fa-plane-departure airplane"></i>
+            </div>
+
+            <div id="footercontact">
+                <div class="bold">
+                    <h4>Office: </h4>
+                </div>
+                <address>
+                    <p>IIT Kharagpur,Kharagpur, India.</p>
+                    <span class="bold">Phone no.:</span>
+                    <p>+91-123-456-7899</p>
+                    <span class="bold">Email us at:</span>
+                    <p>barc@iitkgp.ac.in</p>
+                </address>
+                <div id="icons">
+                    <a href="https://www.facebook.com/barciitkgp/" target="_blank"> <i class="fa fa-facebook-square"></i></a>
+                    <a href="https://www.instagram.com/barc.iitkgp/" target="_blank"><i class="fa fa-instagram"></i></a>
+                    
+                    <a href="https://www.linkedin.com/company/brandingandrelationscell?originalSubdomain=in" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+
+                </div>
+            </div>
+            <div id="top">
+                <a href="#home"><i class="fa fa-arrow-circle-up" id="arrow"></i></a><br>
+                Back to Top
+            </div>
+        </div>
+
+        <div id="copyright">
+            Copyright &copy; 2023 TraWorld. All rights reserved.
+        </div>
+
+    </footer>
+
+     <script>
+        let ham = document.getElementById("hamburger");
+        let vbar = document.getElementById("verticalbar");
+        ham.addEventListener("click", () => {
+            if (vbar.style.display == "none") {
+                vbar.style.display = "block";
+            }
+            else {
+                vbar.style.display = "none";
+            }
+        });
+
+        vbar.addEventListener("click", () => {
+            vbar.style.display = "none";
+        });
+     </script>  
+</body> 
+
+</html>
